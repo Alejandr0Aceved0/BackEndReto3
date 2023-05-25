@@ -20,7 +20,7 @@ public class ScoreModel {
     @Column (name = "id_score")
     private int idScore;
 
-    private Float value;
+    private float value;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_id_reservation", nullable = false, unique = true)
