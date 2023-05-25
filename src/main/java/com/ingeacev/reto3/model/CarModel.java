@@ -32,7 +32,7 @@ public class CarModel {
     @Column(length = 250)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "gama")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_gama", nullable = false)
     private GamaModel gama;
 }

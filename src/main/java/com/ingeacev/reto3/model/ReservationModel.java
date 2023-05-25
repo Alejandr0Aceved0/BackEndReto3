@@ -21,12 +21,12 @@ public class ReservationModel {
     @Column (name = "id_reservation")
     private int idReservation;
 
-    @ManyToOne
-    @JoinColumn(name = "client")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_client", nullable = false)
     private ClientModel client;
 
-    @ManyToOne
-    @JoinColumn(name = "car")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_car", nullable = false)
     private CarModel car;
 
     @Column(name = "start_date")

@@ -22,7 +22,7 @@ public class ScoreModel {
 
     private Float value;
 
-    @ManyToOne
-    @JoinColumn(name = "reservation")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_reservation", nullable = false)
     private ReservationModel reservation;
 }
