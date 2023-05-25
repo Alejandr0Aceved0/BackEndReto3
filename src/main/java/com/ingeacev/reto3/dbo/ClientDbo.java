@@ -19,7 +19,7 @@ public class ClientDbo {
 
     private String password;
 
-    private int age;
+    private byte age;
 
     private String name;
 }

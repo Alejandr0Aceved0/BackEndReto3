@@ -1,8 +1,7 @@
 package com.ingeacev.reto3.controller;
 
+import com.ingeacev.reto3.dbo.AdminDbo;
 import com.ingeacev.reto3.model.AdminModel;
-import com.ingeacev.reto3.service.AdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,16 +10,18 @@ import java.util.List;
 @RequestMapping("/api/Admin")
 public class AdminController {
 
-    @Autowired
-    AdminService adminService;
+//    @Autowired
+//    AdminService adminService;
 
     @GetMapping("/all")
     public List<AdminModel> getAdmin(){
-        return adminService.getAdmin();
+//        return adminService.getAdmin();
+        return null;
     }
 
     @PostMapping("/save")
-    public String saveAdmin(@RequestBody AdminModel adminModel){
-        return adminService.createAdmin(adminModel);
+    public String saveAdmin(@RequestBody AdminDbo adminDbo){
+//        return adminService.createAdmin(adminDbo);
+        return null;
     }
 }
