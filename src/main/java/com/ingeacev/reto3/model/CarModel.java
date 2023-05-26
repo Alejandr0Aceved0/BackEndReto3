@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Car")
@@ -32,7 +33,15 @@ public class CarModel {
     @Column(length = 250)
     private String description;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_id_gama", nullable = false)
     private GamaModel gama;
+
+    @OneToMany(cascade = CascadeType.MERGE)
+    private List<MessageModel> messages;
+
+    @OneToMany(cascade = CascadeType.MERGE)
+    private List<ReservationModel> reservations;
+
+
 }

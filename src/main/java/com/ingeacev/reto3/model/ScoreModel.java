@@ -20,9 +20,9 @@ public class ScoreModel {
     @Column (name = "id_score")
     private int idScore;
 
-    private float value;
+    private int stars;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_id_reservation", nullable = false, unique = true)
     private ReservationModel reservation;
 }

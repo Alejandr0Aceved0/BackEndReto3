@@ -1,6 +1,5 @@
 package com.ingeacev.reto3.service;
 
-import com.ingeacev.reto3.dbo.ClientDbo;
 import com.ingeacev.reto3.model.ClientModel;
 import com.ingeacev.reto3.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,13 @@ public class ClientService {
     @Autowired
     ClientRepository clientRepository;
 
-    public List<ClientModel> getClients() {
+    public List<ClientModel> get() {
         return clientRepository.findAll();
     }
 
-    public String createClient(ClientModel clientModel) {
-        clientRepository.save(clientModel);
+    public void create(ClientModel client) {
+        clientRepository.save(client);
         System.out.println("CLIENTE CREADO");
-        return "CLIENTE CREADO";
     }
 
 }

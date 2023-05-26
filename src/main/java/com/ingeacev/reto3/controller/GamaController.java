@@ -1,9 +1,9 @@
 package com.ingeacev.reto3.controller;
 
-import com.ingeacev.reto3.dbo.GamaDbo;
 import com.ingeacev.reto3.model.GamaModel;
 import com.ingeacev.reto3.service.GamaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,18 +12,17 @@ import java.util.List;
 @RequestMapping("/api/Gama")
 public class GamaController {
 
-//    @Autowired
-//    GamaService gamaService;
+    @Autowired
+    GamaService gamaService;
 
     @GetMapping("/all")
-    public List<GamaModel> getGamas(){
-//        return gamaService.getGamas();
-        return null;
+    public List<GamaModel> get(){
+        return gamaService.get();
     }
 
     @PostMapping("/save")
-    public String saveAdmin(@RequestBody GamaDbo gamaDbo){
-//        return gamaService.createGama(gamaDbo);
-        return null;
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody GamaModel gama){
+        gamaService.create(gama);
     }
 }

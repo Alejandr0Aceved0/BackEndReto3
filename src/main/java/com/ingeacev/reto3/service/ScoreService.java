@@ -1,6 +1,5 @@
 package com.ingeacev.reto3.service;
 
-import com.ingeacev.reto3.dbo.ScoreDbo;
 import com.ingeacev.reto3.model.ScoreModel;
 import com.ingeacev.reto3.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,13 @@ public class ScoreService {
     @Autowired
     ScoreRepository scoreRepository;
 
-    public List<ScoreModel> getScores() {
+    public List<ScoreModel> get() {
         return scoreRepository.findAll();
     }
 
-    public String createScore(ScoreModel scoreModel) {
-        scoreRepository.save(scoreModel);
+    public void create(ScoreModel score) {
+        scoreRepository.save(score);
         System.out.println("SCORE CREADO");
-        return "SCORE CREADO";
     }
 
 }

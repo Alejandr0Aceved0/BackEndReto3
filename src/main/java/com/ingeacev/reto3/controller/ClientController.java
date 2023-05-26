@@ -1,9 +1,9 @@
 package com.ingeacev.reto3.controller;
 
-import com.ingeacev.reto3.dbo.ClientDbo;
 import com.ingeacev.reto3.model.ClientModel;
 import com.ingeacev.reto3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,18 +12,17 @@ import java.util.List;
 @RequestMapping("/api/Client")
 public class ClientController {
 
-//    @Autowired
-//    ClientService clientService;
+    @Autowired
+    ClientService clientService;
 
     @GetMapping("/all")
-    public List<ClientModel> getClients(){
-//        return clientService.getClients();
-        return null;
+    public List<ClientModel> get() {
+        return clientService.get();
     }
 
     @PostMapping("/save")
-    public String saveClient(@RequestBody ClientDbo clientDbo){
-//        return clientService.createClient(clientDbo);
-        return null;
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody ClientModel client) {
+        clientService.create(client);
     }
 }

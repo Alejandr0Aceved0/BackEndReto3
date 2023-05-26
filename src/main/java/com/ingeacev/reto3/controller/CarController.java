@@ -1,9 +1,9 @@
 package com.ingeacev.reto3.controller;
 
-import com.ingeacev.reto3.dbo.CarDbo;
 import com.ingeacev.reto3.model.CarModel;
 import com.ingeacev.reto3.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,18 +12,17 @@ import java.util.List;
 @RequestMapping("/api/Car")
 public class CarController {
 
-//    @Autowired
-//    CarService carService;
+    @Autowired
+    CarService carService;
 
     @GetMapping("/all")
-    public List<CarModel> getCars(){
-//        return carService.getCars();
-        return null;
+    public List<CarModel> get(){
+        return carService.get();
     }
 
     @PostMapping("/save")
-    public String saveCar(@RequestBody CarDbo carDbo){
-//        return carService.createCar(carDbo);
-        return null;
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody CarModel car){
+        carService.create(car);
     }
 }

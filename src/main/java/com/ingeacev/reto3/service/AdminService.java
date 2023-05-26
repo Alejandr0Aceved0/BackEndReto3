@@ -13,12 +13,12 @@ public class AdminService {
     @Autowired
     AdminRepository adminRepository;
 
-    public List<AdminModel> getAdmin() {
+    public List<AdminModel> get() {
         return adminRepository.findAll();
     }
 
-    public String createAdmin(AdminModel adminModel) {
-        adminRepository.save(adminModel);
+    public String create(AdminModel admin) {
+        adminRepository.save(admin);
         System.out.println("ADMINISTRADOR CREADO");
         return "ADMINISTRADOR CREADO";
     }

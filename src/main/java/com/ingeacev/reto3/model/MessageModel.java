@@ -23,11 +23,11 @@ public class MessageModel {
     @Column(length = 250, name = "message_text")
     private String messageText;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_id_gama")
     private GamaModel car;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "fk_id_client", nullable = false)
     private ClientModel client;
 }

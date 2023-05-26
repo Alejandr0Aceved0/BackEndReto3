@@ -1,6 +1,5 @@
 package com.ingeacev.reto3.service;
 
-import com.ingeacev.reto3.dbo.ReservationDbo;
 import com.ingeacev.reto3.model.ReservationModel;
 import com.ingeacev.reto3.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,13 @@ public class ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-    public List<ReservationModel> getReservations() {
+    public List<ReservationModel> get() {
         return reservationRepository.findAll();
     }
 
-    public String createReservation(ReservationModel reservationModel) {
-        reservationRepository.save(reservationModel);
-        System.out.println("ADMINISTRADOR CREADO");
-        return "ADMINISTRADOR CREADO";
+    public void create(ReservationModel reservation) {
+        reservationRepository.save(reservation);
+        System.out.println("RESERVACION CREADO");
     }
 
 }

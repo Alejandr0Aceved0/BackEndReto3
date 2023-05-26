@@ -1,9 +1,9 @@
 package com.ingeacev.reto3.controller;
 
-import com.ingeacev.reto3.dbo.ReservationDbo;
 import com.ingeacev.reto3.model.ReservationModel;
 import com.ingeacev.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,18 +12,17 @@ import java.util.List;
 @RequestMapping("/api/Reservation")
 public class ReservationController {
 
-//    @Autowired
-//    ReservationService reservationService;
+    @Autowired
+    ReservationService reservationService;
 
     @GetMapping("/all")
-    public List<ReservationModel> getReservations(){
-//        return reservationService.getReservations();
-        return null;
+    public List<ReservationModel> get(){
+        return reservationService.get();
     }
 
     @PostMapping("/save")
-    public String saveReservation(@RequestBody ReservationDbo reservationDbo){
-//        return reservationService.createReservation(reservationDbo);
-        return null;
+    @ResponseStatus(HttpStatus.CREATED)
+    public void create(@RequestBody ReservationModel reservation){
+        reservationService.create(reservation);
     }
 }

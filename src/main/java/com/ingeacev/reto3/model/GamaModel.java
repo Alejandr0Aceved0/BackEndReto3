@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Gama")
@@ -25,4 +26,7 @@ public class GamaModel {
 
     @Column(length = 250)
     private String description;
+
+    @OneToMany(cascade = CascadeType.MERGE)
+    private List<CarModel> cars;
 }

@@ -21,17 +21,20 @@ public class ReservationModel {
     @Column (name = "id_reservation")
     private int idReservation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_id_client", nullable = false)
-    private ClientModel client;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_id_car", nullable = false)
-    private CarModel car;
-
     @Column(name = "start_date")
     private Date startDate;
 
     @Column(name = "devolution_date")
     private Date devolutionDate;
+
+    private String status = "created";
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "fk_id_car", nullable = false)
+    private CarModel car;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "fk_id_client", nullable = false)
+    private ClientModel client;
+
 }

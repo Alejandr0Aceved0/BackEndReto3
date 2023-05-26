@@ -1,6 +1,5 @@
 package com.ingeacev.reto3.service;
 
-import com.ingeacev.reto3.dbo.GamaDbo;
 import com.ingeacev.reto3.model.GamaModel;
 import com.ingeacev.reto3.repository.GamaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,12 @@ public class GamaService {
     @Autowired
     GamaRepository gamaRepository;
 
-    public List<GamaModel> getGamas() {
+    public List<GamaModel> get() {
         return gamaRepository.findAll();
     }
 
-    public String createGama(GamaModel gamaModel) {
-        gamaRepository.save(gamaModel);
-        System.out.println("ADMINISTRADOR CREADO");
-        return "ADMINISTRADOR CREADO";
+    public void create(GamaModel gama) {
+        gamaRepository.save(gama);
     }
 
 }

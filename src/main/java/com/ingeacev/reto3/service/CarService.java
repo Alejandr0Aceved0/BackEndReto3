@@ -14,14 +14,12 @@ public class CarService {
     @Autowired
     CarRepository carRepository;
 
-    public List<CarModel> getCars() {
+    public List<CarModel> get() {
         return carRepository.findAll();
     }
 
-    public String createCar(CarModel carModel) {
-        carRepository.save(carModel);
+    public void create(CarModel car) {
+        carRepository.save(car);
         System.out.println("CARRO CREADO");
-        return "CARRO CREADO";
     }
-
 }

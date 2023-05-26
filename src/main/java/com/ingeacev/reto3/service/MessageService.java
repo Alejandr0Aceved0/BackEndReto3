@@ -13,14 +13,13 @@ public class MessageService {
     @Autowired
     MessageRepository messageRepository;
 
-    public List<MessageModel> getMessages() {
+    public List<MessageModel> get() {
         return messageRepository.findAll();
     }
 
-    public String createMessage(MessageModel messageModel) {
-        messageRepository.save(messageModel);
-        System.out.println("ADMINISTRADOR CREADO");
-        return "ADMINISTRADOR CREADO";
+    public void create(MessageModel message) {
+        messageRepository.save(message);
+        System.out.println("MESSAGE CREADO");
     }
 
 }
