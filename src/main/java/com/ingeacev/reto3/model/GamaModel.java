@@ -18,7 +18,7 @@ public class GamaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_gama")
+    @Column(name = "id_gama")
     private int idGama;
 
     @Column(length = 45)
@@ -27,6 +27,6 @@ public class GamaModel {
     @Column(length = 250)
     private String description;
 
-    @OneToMany(cascade = CascadeType.MERGE)
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "gama")
     private List<CarModel> cars;
 }
