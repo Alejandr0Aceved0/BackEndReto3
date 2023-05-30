@@ -16,13 +16,33 @@ public class CarController {
     CarService carService;
 
     @GetMapping("/all")
-    public List<CarModel> get(){
+    public List<CarModel> get() {
         return carService.get();
+    }
+
+    @GetMapping("/all/By-Brand/{brand}")
+    public List<CarModel> getCarByBrand(@PathVariable String brand) {
+        return carService.getCarsByBrand(brand);
+    }
+
+    @GetMapping("/all/By-Brand-And-Year")
+    public List<CarModel> getCarsByBrandAndYear(@RequestParam String brand, @RequestParam int year) {
+        return carService.getCarsByBrandAndYear(brand, year);
+    }
+
+    @GetMapping("/all/By-Brand-Desc/{brand}")
+    public List<CarModel> getCarByBrandDesc(@PathVariable String brand) {
+        return carService.getCarsByBrandDesc(brand);
+    }
+
+    @GetMapping("/all/By-Brand-Asc/{brand}")
+    public List<CarModel> getCarByBrandAsc(@PathVariable String brand) {
+        return carService.getCarsByBrandAsc(brand);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@RequestBody CarModel car){
+    public void create(@RequestBody CarModel car) {
         carService.create(car);
     }
 }

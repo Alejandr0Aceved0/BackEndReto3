@@ -4,6 +4,19 @@ import com.ingeacev.reto3.model.CarModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface CarRepository extends JpaRepository<CarModel,Integer> {
+public interface CarRepository extends JpaRepository<CarModel, Integer> {
+
+    /* FORMA EXPLICITA DE ENVIAR UN QUERY DE FORMA NATIVA
+    @Query(value = "SELECT * FROM CAR WHERE BRAND like ?", nativeQuery = true)
+    List<CarModel> getCarsByBrand(String brand);        */
+
+    List<CarModel> findByBrand(String Brand);
+
+    List<CarModel> findByBrandAndYear(String brand, int year);
+    List<CarModel> findByBrandOrderByYearAsc(String brand);
+    List<CarModel> findByBrandOrderByYearDesc(String brand);
+
 }
