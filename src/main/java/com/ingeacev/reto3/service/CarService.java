@@ -29,6 +29,17 @@ public class CarService {
         return carRepository.findByBrandOrderByYearDesc(brand);
     }
 
+    public List<CarModel> getCarsByBrandContent(String brand) {
+        return carRepository.findByBrandContains(brand);
+    }
+    public List<CarModel> getCarsByBrandStartsContent(String brand) {
+        return carRepository.findByBrandStartsWith(brand);
+    }
+
+    public List<CarModel> getCarsByBrandEndsContent(String brand) {
+        return carRepository.findByBrandEndsWith(brand);
+    }
+
     public List<CarModel> getCarsByBrandAsc(String brand) {
         return carRepository.findByBrandOrderByYearAsc(brand);
     }

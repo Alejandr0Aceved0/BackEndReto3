@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AdminRepository extends JpaRepository<AdminModel,Integer> {
+    //JPA es un ORM, una libreria que ayuda a conectarse a las bases de datos mucho mas facil
 }

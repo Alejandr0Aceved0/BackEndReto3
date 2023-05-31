@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/Admin")
 public class AdminController {
-
+//Los controladores son quienes se conectan a los servicios para hacer las peticiones
     @Autowired
     AdminService adminService;
 

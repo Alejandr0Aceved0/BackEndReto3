@@ -37,7 +37,26 @@ public class CarController {
 
     @GetMapping("/all/By-Brand-Asc/{brand}")
     public List<CarModel> getCarByBrandAsc(@PathVariable String brand) {
+
         return carService.getCarsByBrandAsc(brand);
+    }
+
+    @GetMapping("/all/Contains")
+    public List<CarModel> getCarsByContent(@RequestParam String brand) {
+
+        return carService.getCarsByBrandContent(brand);
+    }
+
+    @GetMapping("/all/Starts-Contains")
+    public List<CarModel> getCarsByBrandStartContent(@RequestParam String brand) {
+
+        return carService.getCarsByBrandStartsContent(brand);
+    }
+
+    @GetMapping("/all/Ends-Contains")
+    public List<CarModel> getCarsByBrandEndsContent(@RequestParam String brand) {
+
+        return carService.getCarsByBrandEndsContent(brand);
     }
 
     @PostMapping("/save")
