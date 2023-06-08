@@ -22,4 +22,8 @@ public class ScoreService {
         System.out.println("SCORE CREADO");
     }
 
+    public void deleteScoreById(int id) {
+        scoreRepository.deleteById(id);
+        System.out.println("SCORE ELIMINADO");
+    }
 }

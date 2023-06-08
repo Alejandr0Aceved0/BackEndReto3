@@ -25,4 +25,9 @@ public class ClientController {
     public void create(@RequestBody ClientModel client) {
         clientService.create(client);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteClientById(@PathVariable int id){
+        clientService.deleteClientById(id);
+    }
 }

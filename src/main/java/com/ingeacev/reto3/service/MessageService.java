@@ -22,4 +22,8 @@ public class MessageService {
         System.out.println("MESSAGE CREADO");
     }
 
+    public void deleteMessageById(int id) {
+        messageRepository.deleteById(id);
+        System.out.println("MESSAGE ELIMINADO");
+    }
 }

@@ -25,4 +25,9 @@ public class GamaController {
     public void create(@RequestBody GamaModel gama){
         gamaService.create(gama);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteGamaById(@PathVariable int id){
+        gamaService.deleteById(id);
+    }
 }

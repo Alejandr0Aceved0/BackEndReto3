@@ -64,4 +64,9 @@ public class CarController {
     public void create(@RequestBody CarModel car) {
         carService.create(car);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteCarById(@PathVariable int id){
+        carService.deleteCarById(id);
+    }
 }

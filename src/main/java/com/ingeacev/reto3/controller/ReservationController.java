@@ -25,4 +25,9 @@ public class ReservationController {
     public void create(@RequestBody ReservationModel reservation){
         reservationService.create(reservation);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        reservationService.deleteReservationById(id);
+    }
 }

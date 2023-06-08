@@ -25,4 +25,9 @@ public class MessageController {
     public void create(@RequestBody MessageModel message){
         messageService.create(message);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        messageService.deleteMessageById(id);
+    }
 }

@@ -22,4 +22,8 @@ public class ReservationService {
         System.out.println("RESERVACION CREADO");
     }
 
+    public void deleteReservationById(int id) {
+        reservationRepository.deleteById(id);
+        System.out.println("RESERVACION ELIMINADO");
+    }
 }

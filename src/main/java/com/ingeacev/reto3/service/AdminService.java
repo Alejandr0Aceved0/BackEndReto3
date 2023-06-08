@@ -23,4 +23,8 @@ public class AdminService {
         return "ADMINISTRADOR CREADO";
     }
 
+    public void deleteAdminById(int id) {
+        adminRepository.deleteById(id);
+        System.out.println("ADMIN ELIMINADO");
+    }
 }

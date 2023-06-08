@@ -47,4 +47,9 @@ public class CarService {
         carRepository.save(car);
         System.out.println("CARRO CREADO");
     }
+
+    public void deleteCarById(int id) {
+        carRepository.deleteById(id);
+        System.out.println("CARRO ELIMINADO");
+    }
 }

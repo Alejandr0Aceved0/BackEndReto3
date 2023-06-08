@@ -25,4 +25,9 @@ public class AdminController {
     public void create(@RequestBody AdminModel admin) {
         adminService.create(admin);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id){
+        adminService.deleteAdminById(id);
+    }
 }

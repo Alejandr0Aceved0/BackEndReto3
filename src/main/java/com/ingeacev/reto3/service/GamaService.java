@@ -21,4 +21,8 @@ public class GamaService {
         gamaRepository.save(gama);
     }
 
+    public void deleteById(int id) {
+        gamaRepository.deleteById(id);
+        System.out.println("GAMA ELIMINADA");
+    }
 }

@@ -22,4 +22,8 @@ public class ClientService {
         System.out.println("CLIENTE CREADO");
     }
 
+    public void deleteClientById(int id) {
+        clientRepository.deleteById(id);
+        System.out.println("CLIENTE ELIMINADO");
+    }
 }
