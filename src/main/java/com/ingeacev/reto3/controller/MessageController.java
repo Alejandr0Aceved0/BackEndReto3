@@ -30,4 +30,9 @@ public class MessageController {
     public void deleteById(@PathVariable int id){
         messageService.deleteMessageById(id);
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody MessageModel message){
+        messageService.update(message);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminService {
@@ -26,5 +27,28 @@ public class AdminService {
     public void deleteAdminById(int id) {
         adminRepository.deleteById(id);
         System.out.println("ADMIN ELIMINADO");
+    }
+
+    public void update(AdminModel adminPut) {
+
+        Optional<AdminModel> carDb = adminRepository.findById(adminPut.getIdAdmin());
+
+        AdminModel car = carDb.get();
+
+        if (carDb.isPresent()){
+
+            if (adminPut.getAge() != 0){
+                car.setAge(adminPut.getAge());
+            }
+
+            if (adminPut.getEmail() != null){
+                car.setEmail(adminPut.getEmail());
+            }
+
+            if (adminPut.getPassword() != null){
+                car.setPassword(adminPut.getPassword());
+            }
+        }
+        adminRepository.save(car);
     }
 }

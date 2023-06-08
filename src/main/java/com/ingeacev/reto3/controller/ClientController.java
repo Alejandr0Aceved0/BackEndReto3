@@ -30,4 +30,9 @@ public class ClientController {
     public void deleteClientById(@PathVariable int id){
         clientService.deleteClientById(id);
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody ClientModel client){
+        clientService.update(client);
+    }
 }

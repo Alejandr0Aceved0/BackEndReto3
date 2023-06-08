@@ -10,6 +10,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarService {
@@ -68,5 +69,44 @@ public class CarService {
     public void deleteCarById(int id) {
         carRepository.deleteById(id);
         System.out.println("CARRO ELIMINADO");
+    }
+
+    public void update(CarModel carPut) {
+
+        Optional<CarModel> carDb = carRepository.findById(carPut.getIdCar());
+
+        CarModel car = carDb.get();
+
+        if (carDb.isPresent()){
+
+            if (carPut.getBrand() != null){
+                car.setBrand(carPut.getBrand());
+            }
+
+            if (carPut.getName() != null){
+                car.setName(carPut.getName());
+            }
+
+            if (carPut.getDescription() != null){
+                car.setDescription(carPut.getDescription());
+            }
+
+            if (carPut.getYear() != 0){
+                car.setYear(carPut.getYear());
+            }
+
+            if (carPut.getMessages() != null){
+                car.setMessages(carPut.getMessages());
+            }
+
+            if (carPut.getGama() != null){
+                car.setGama(carPut.getGama());
+            }
+
+            if (carPut.getReservations() != null){
+                car.setReservations(carPut.getReservations());
+            }
+        }
+        carRepository.save(car);
     }
 }

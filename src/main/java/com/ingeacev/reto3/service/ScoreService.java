@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ScoreService {
@@ -25,5 +26,20 @@ public class ScoreService {
     public void deleteScoreById(int id) {
         scoreRepository.deleteById(id);
         System.out.println("SCORE ELIMINADO");
+    }
+
+    public void update(ScoreModel scorePut) {
+
+        Optional<ScoreModel> reservationBd = scoreRepository.findById(scorePut.getIdScore());
+
+        ScoreModel reservation = reservationBd.get();
+
+        if (reservationBd.isPresent()){
+
+            if (scorePut.getStars() != 0){
+                reservation.setStars(scorePut.getStars());
+            }
+        }
+        scoreRepository.save(reservation);
     }
 }

@@ -30,4 +30,9 @@ public class AdminController {
     public void deleteById(@PathVariable int id){
         adminService.deleteAdminById(id);
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody AdminModel admin){
+        adminService.update(admin);
+    }
 }

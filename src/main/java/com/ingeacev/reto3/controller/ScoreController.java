@@ -30,4 +30,9 @@ public class ScoreController {
     public void deleteById(@PathVariable int id){
         scoreService.deleteScoreById(id);
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody ScoreModel gama){
+        scoreService.update(gama);
+    }
 }

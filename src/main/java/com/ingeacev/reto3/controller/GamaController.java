@@ -30,4 +30,9 @@ public class GamaController {
     public void deleteGamaById(@PathVariable int id){
         gamaService.deleteById(id);
     }
+
+    @PutMapping("/update")
+    public void update(@RequestBody GamaModel gama){
+        gamaService.update(gama);
+    }
 }
