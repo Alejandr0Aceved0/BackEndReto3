@@ -3,6 +3,7 @@ package com.ingeacev.reto3.controller;
 import com.ingeacev.reto3.model.CarModel;
 import com.ingeacev.reto3.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +21,10 @@ public class CarController {
         return carService.get();
     }
 
-    @GetMapping("/all/By-Brand/{brand}")
+    /*@GetMapping("/all/By-Brand/{brand}")
     public List<CarModel> getCarByBrand(@PathVariable String brand) {
         return carService.getCarsByBrand(brand);
-    }
+    }*/
 
     @GetMapping("/all/By-Brand-And-Year")
     public List<CarModel> getCarsByBrandAndYear(@RequestParam String brand, @RequestParam int year) {
@@ -57,6 +58,18 @@ public class CarController {
     public List<CarModel> getCarsByBrandEndsContent(@RequestParam String brand) {
 
         return carService.getCarsByBrandEndsContent(brand);
+    }
+
+    @GetMapping("/all/By-Pages")
+    public Page<CarModel> getAllCarsByPages(@RequestParam int page, @RequestParam int size) {
+
+        return carService.getAllCarsByPages(page, size);
+    }
+
+    @GetMapping("/all/By-Brand/Pages")
+    public Page<CarModel> getCarsByBrandByPages(@RequestParam String brand, @RequestParam int page, @RequestParam int size) {
+
+        return carService.getCarsByBrandByPages(brand, page, size);
     }
 
     @PostMapping("/save")

@@ -1,6 +1,8 @@
 package com.ingeacev.reto3.repository;
 
 import com.ingeacev.reto3.model.CarModel;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +15,7 @@ public interface CarRepository extends JpaRepository<CarModel, Integer> {
     @Query(value = "SELECT * FROM CAR WHERE BRAND like ?", nativeQuery = true)
     List<CarModel> getCarsByBrand(String brand);        */
 
-    List<CarModel> findByBrand(String Brand);
+    Page<CarModel> findByBrand(String Brand, Pageable pageable);
 
     List<CarModel> findByBrandAndYear(String brand, int year);
 
