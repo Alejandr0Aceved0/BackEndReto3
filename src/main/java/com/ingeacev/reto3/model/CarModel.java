@@ -29,7 +29,7 @@ public class CarModel {
     private String brand;
 
 
-    @Column(name = "year", length = 4, nullable = false)
+    @Column(name = "car_year", length = 4, nullable = false)
     private int year;
 
     @Column(length = 250)
