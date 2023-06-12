@@ -90,6 +90,7 @@ public class CarController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody CarModel car){
         carService.update(car);
     }

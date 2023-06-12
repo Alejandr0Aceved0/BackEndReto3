@@ -38,6 +38,7 @@ public class GamaController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody GamaModel gama){
         gamaService.update(gama);
     }

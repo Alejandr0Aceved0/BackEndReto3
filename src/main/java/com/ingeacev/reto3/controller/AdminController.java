@@ -33,6 +33,7 @@ public class AdminController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody AdminModel admin){
         adminService.update(admin);
     }

@@ -38,6 +38,7 @@ public class ClientController {
     }
 
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public void update(@RequestBody ClientModel client){
         clientService.update(client);
     }
