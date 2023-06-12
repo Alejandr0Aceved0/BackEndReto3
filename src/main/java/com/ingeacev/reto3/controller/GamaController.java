@@ -36,7 +36,7 @@ public class GamaController {
         gamaService.deleteById(id);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/all")
     public void update(@RequestBody GamaModel gama){
         gamaService.update(gama);
     }
