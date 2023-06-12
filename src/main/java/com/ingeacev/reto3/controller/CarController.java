@@ -84,6 +84,7 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<CarModel> deleteCarById(@PathVariable int id){
        return carService.deleteCarById(id);
     }

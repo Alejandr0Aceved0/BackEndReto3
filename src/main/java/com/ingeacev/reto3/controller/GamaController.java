@@ -32,6 +32,7 @@ public class GamaController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public List<GamaModel> deleteGamaById(@PathVariable int id){
        return gamaService.deleteById(id);
     }

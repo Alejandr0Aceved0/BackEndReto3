@@ -27,6 +27,7 @@ public class AdminController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable int id){
         adminService.deleteAdminById(id);
     }
