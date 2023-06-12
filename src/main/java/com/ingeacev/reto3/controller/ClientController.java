@@ -36,7 +36,7 @@ public class ClientController {
         clientService.deleteClientById(id);
     }
 
-    @PutMapping("/all")
+    @PutMapping("/update")
     public void update(@RequestBody ClientModel client){
         clientService.update(client);
     }

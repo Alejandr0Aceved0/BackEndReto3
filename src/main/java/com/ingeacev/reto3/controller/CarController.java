@@ -88,7 +88,7 @@ public class CarController {
         carService.deleteCarById(id);
     }
 
-    @PutMapping("/all")
+    @PutMapping("/update")
     public void update(@RequestBody CarModel car){
         carService.update(car);
     }
