@@ -22,6 +22,11 @@ public class CarService {
         return carRepository.findAll();
     }
 
+    public List<CarModel> deleteAll() {
+        carRepository.deleteAll();
+        return carRepository.findAll();
+    }
+
     /*public List<CarModel> getCarsByBrand(String brand) {
 
         return carRepository.findByBrand(brand, pageable);

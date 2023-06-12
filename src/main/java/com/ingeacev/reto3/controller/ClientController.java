@@ -20,6 +20,11 @@ public class ClientController {
         return clientService.get();
     }
 
+    @DeleteMapping("/all")
+    public List<ClientModel> deleteAll() {
+        return clientService.deleteAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody ClientModel client) {

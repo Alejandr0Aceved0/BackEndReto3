@@ -20,6 +20,11 @@ public class GamaController {
         return gamaService.get();
     }
 
+    @DeleteMapping("/all")
+    public List<GamaModel> deleteAll(){
+        return gamaService.deleteAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody GamaModel gama){

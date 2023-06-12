@@ -18,6 +18,11 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
+    public List<ClientModel> deleteAll() {
+        clientRepository.deleteAll();
+        return clientRepository.findAll();
+    }
+
     public void create(ClientModel client) {
         clientRepository.save(client);
         System.out.println("CLIENTE CREADO");
@@ -61,4 +66,6 @@ public class ClientService {
         }
         clientRepository.save(client);
     }
+
+
 }

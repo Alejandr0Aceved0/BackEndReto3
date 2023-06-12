@@ -18,6 +18,11 @@ public class GamaService {
         return gamaRepository.findAll();
     }
 
+    public List<GamaModel> deleteAll() {
+        gamaRepository.deleteAll();
+        return gamaRepository.findAll();
+    }
+
     public void create(GamaModel gama) {
         gamaRepository.save(gama);
     }
