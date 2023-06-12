@@ -32,8 +32,8 @@ public class GamaController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteGamaById(@PathVariable int id){
-        gamaService.deleteById(id);
+    public List<GamaModel> deleteGamaById(@PathVariable int id){
+       return gamaService.deleteById(id);
     }
 
     @PutMapping("/update")

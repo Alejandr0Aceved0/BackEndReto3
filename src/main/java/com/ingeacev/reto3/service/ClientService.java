@@ -28,9 +28,10 @@ public class ClientService {
         System.out.println("CLIENTE CREADO");
     }
 
-    public void deleteClientById(int id) {
+    public List<ClientModel> deleteClientById(int id) {
         clientRepository.deleteById(id);
         System.out.println("CLIENTE ELIMINADO");
+        return clientRepository.findAll();
     }
 
     public void update(ClientModel clientPut) {

@@ -32,8 +32,8 @@ public class ClientController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClientById(@PathVariable int id){
-        clientService.deleteClientById(id);
+    public List<ClientModel> deleteClientById(@PathVariable int id){
+       return clientService.deleteClientById(id);
     }
 
     @PutMapping("/update")

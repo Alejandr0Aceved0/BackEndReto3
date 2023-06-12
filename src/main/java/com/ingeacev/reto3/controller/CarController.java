@@ -84,8 +84,8 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable int id){
-        carService.deleteCarById(id);
+    public List<CarModel> deleteCarById(@PathVariable int id){
+       return carService.deleteCarById(id);
     }
 
     @PutMapping("/update")

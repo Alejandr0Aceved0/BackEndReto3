@@ -27,9 +27,10 @@ public class GamaService {
         gamaRepository.save(gama);
     }
 
-    public void deleteById(int id) {
+    public List<GamaModel> deleteById(int id) {
         gamaRepository.deleteById(id);
         System.out.println("GAMA ELIMINADA");
+        return gamaRepository.findAll();
     }
 
     public void update(GamaModel gamaPut) {

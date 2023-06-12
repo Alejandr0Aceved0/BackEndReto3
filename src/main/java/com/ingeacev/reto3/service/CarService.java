@@ -71,9 +71,10 @@ public class CarService {
         System.out.println("CARRO CREADO");
     }
 
-    public void deleteCarById(int id) {
+    public List<CarModel> deleteCarById(int id) {
         carRepository.deleteById(id);
         System.out.println("CARRO ELIMINADO");
+        return carRepository.findAll();
     }
 
     public void update(CarModel carPut) {
