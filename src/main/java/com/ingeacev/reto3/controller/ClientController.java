@@ -20,6 +20,11 @@ public class ClientController {
         return clientService.get();
     }
 
+    @DeleteMapping("/all")
+    public List<ClientModel> deleteAll() {
+        return clientService.deleteAll();
+    }
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody ClientModel client) {
@@ -27,8 +32,8 @@ public class ClientController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClientById(@PathVariable int id){
-        clientService.deleteClientById(id);
+    public List<ClientModel> deleteClientById(@PathVariable int id){
+       return clientService.deleteClientById(id);
     }
 
     @PutMapping("/update")

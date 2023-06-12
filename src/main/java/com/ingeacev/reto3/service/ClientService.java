@@ -18,14 +18,20 @@ public class ClientService {
         return clientRepository.findAll();
     }
 
+    public List<ClientModel> deleteAll() {
+        clientRepository.deleteAll();
+        return clientRepository.findAll();
+    }
+
     public void create(ClientModel client) {
         clientRepository.save(client);
         System.out.println("CLIENTE CREADO");
     }
 
-    public void deleteClientById(int id) {
+    public List<ClientModel> deleteClientById(int id) {
         clientRepository.deleteById(id);
         System.out.println("CLIENTE ELIMINADO");
+        return clientRepository.findAll();
     }
 
     public void update(ClientModel clientPut) {
@@ -61,4 +67,6 @@ public class ClientService {
         }
         clientRepository.save(client);
     }
+
+
 }

@@ -21,6 +21,11 @@ public class CarController {
         return carService.get();
     }
 
+    @DeleteMapping("/all")
+    public List<CarModel> deleteAll() {
+        return carService.deleteAll();
+    }
+
     /*@GetMapping("/all/By-Brand/{brand}")
     public List<CarModel> getCarByBrand(@PathVariable String brand) {
         return carService.getCarsByBrand(brand);
@@ -79,8 +84,8 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable int id){
-        carService.deleteCarById(id);
+    public List<CarModel> deleteCarById(@PathVariable int id){
+       return carService.deleteCarById(id);
     }
 
     @PutMapping("/update")

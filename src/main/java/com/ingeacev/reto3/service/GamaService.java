@@ -18,13 +18,19 @@ public class GamaService {
         return gamaRepository.findAll();
     }
 
+    public List<GamaModel> deleteAll() {
+        gamaRepository.deleteAll();
+        return gamaRepository.findAll();
+    }
+
     public void create(GamaModel gama) {
         gamaRepository.save(gama);
     }
 
-    public void deleteById(int id) {
+    public List<GamaModel> deleteById(int id) {
         gamaRepository.deleteById(id);
         System.out.println("GAMA ELIMINADA");
+        return gamaRepository.findAll();
     }
 
     public void update(GamaModel gamaPut) {
