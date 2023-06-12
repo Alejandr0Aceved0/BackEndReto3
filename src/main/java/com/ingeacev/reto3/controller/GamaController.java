@@ -25,7 +25,7 @@ public class GamaController {
         return gamaService.deleteAll();
     }
 
-    @PostMapping("/all")
+    @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody GamaModel gama){
         gamaService.create(gama);
