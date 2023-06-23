@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/Client")
 public class ClientController {
 
@@ -18,6 +20,10 @@ public class ClientController {
     @GetMapping("/all")
     public List<ClientModel> get() {
         return clientService.get();
+    }
+    @GetMapping("/{id}")
+    public Optional<ClientModel> getClientById(@PathVariable int id){
+        return clientService.getClientById(id);
     }
 
     @DeleteMapping("/all")

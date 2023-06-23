@@ -69,4 +69,11 @@ public class ClientService {
     }
 
 
+    public Optional<ClientModel> getClientById(int id) {
+
+        Optional<ClientModel> client = clientRepository.findById(id);
+        System.out.println("CLIENTE OBTENIDO: " + client);
+        return client;
+    }
+
 }
